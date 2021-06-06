@@ -1,15 +1,24 @@
 import { DynamicModule, Global, Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ModelsModuleOptions } from './ModelsModuleOptions';
-import {ServerWhitelistRepository} from "./Servers/Whitelist/ServerWhitelistRepository";
-import {ServerRepository} from "./Servers/ServerRepository";
-import {Server} from "./Servers/Server";
-import {ServerWhitelist} from "./Servers/Whitelist/ServerWhitelist";
+import { ServerWhitelistRepository } from "./Servers/Whitelist/ServerWhitelistRepository";
+import { ServerRepository } from "./Servers/ServerRepository";
+import { Server } from "./Servers/Server";
+import { ServerWhitelist } from "./Servers/Whitelist/ServerWhitelist";
+import { ServerBackup } from './Servers/Backups/Backup';
+import { ServerBackupRepository } from './Servers/Backups/ServerBackupRepository';
+import { Team } from './Teams/Team';
+import { TeamRepository } from './Teams/TeamRepository';
+import { ServerProperty } from './Servers/Properties/ServerProperty';
+import { User } from './RBAC/User';
+import { Organization } from './RBAC/Organization';
+import { Role } from './RBAC/Role';
+import { Permission } from './RBAC/Permission';
+import { ServerLog } from './Servers/Logs/ServerLog';
 
 
 @Global()
 @Module({
-
 
     imports: [
 
@@ -27,8 +36,16 @@ import {ServerWhitelist} from "./Servers/Whitelist/ServerWhitelist";
             keepConnectionAlive: true,
             entities: [
 
+                Organization,
+                Permission,
+                Role,
                 Server,
-                ServerWhitelist
+                ServerBackup,
+                ServerLog,
+                ServerProperty,
+                ServerWhitelist,
+                Team,
+                User
 
             ]
 
@@ -36,11 +53,7 @@ import {ServerWhitelist} from "./Servers/Whitelist/ServerWhitelist";
 
     ],
 
-    providers: [
-
-
-
-    ],
+    providers: [],
 
     exports: [
 
@@ -48,7 +61,9 @@ import {ServerWhitelist} from "./Servers/Whitelist/ServerWhitelist";
         TypeOrmModule.forFeature([
 
             ServerRepository,
-            ServerWhitelistRepository
+            ServerBackupRepository,
+            ServerWhitelistRepository,
+            TeamRepository
 
         ])
 
@@ -80,8 +95,16 @@ export class ModelsModule {
                     keepConnectionAlive: true,
                     entities: [
 
+                        Organization,
+                        Permission,
+                        Role,
                         Server,
-                        ServerWhitelist
+                        ServerBackup,
+                        ServerLog,
+                        ServerProperty,
+                        ServerWhitelist,
+                        Team,
+                        User
 
                     ]
 
@@ -89,7 +112,9 @@ export class ModelsModule {
                 TypeOrmModule.forFeature([
 
                     ServerRepository,
-                    ServerWhitelistRepository
+                    ServerBackupRepository,
+                    ServerWhitelistRepository,
+                    TeamRepository
 
                 ])
 
@@ -99,7 +124,10 @@ export class ModelsModule {
             providers: [
 
                 ServerRepository,
-                ServerWhitelistRepository
+                ServerBackupRepository,
+                ServerWhitelistRepository,
+                TeamRepository
+
             ],
 
             exports: [
@@ -107,7 +135,9 @@ export class ModelsModule {
                 TypeOrmModule,
 
                 ServerRepository,
-                ServerWhitelistRepository
+                ServerBackupRepository,
+                ServerWhitelistRepository,
+                TeamRepository
 
             ]
 

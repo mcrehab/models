@@ -1,11 +1,12 @@
-import { EntityBase }                                                                          from '@nestjs.pro/common/dist/entities/EntityBase';
-import { ApiProperty }                                                                         from '@nestjs/swagger';
-import * as bcrypt                                                                             from 'bcrypt';
-import { Exclude }                                                                             from 'class-transformer';
+import { EntityBase } from '@nestjs.pro/common/dist/entities/EntityBase';
+import { ApiProperty } from '@nestjs/swagger';
+import * as bcrypt from 'bcrypt';
+import { Exclude } from 'class-transformer';
 import { BeforeInsert, BeforeUpdate, Column, Entity, Index, JoinTable, ManyToMany, ManyToOne } from 'typeorm';
-import { Organization }                                                                        from './Organization';
-import { Role }                                                                                from './Role';
-import { UserStatus }                                                                          from './UserStatus';
+import { Organization } from './Organization';
+import { Role } from './Role';
+import { UserStatus } from './UserStatus';
+import { Team } from '../Teams/Team';
 
 @Entity('rbac_users')
 @Index([ 'email' ], { unique: true })
@@ -56,5 +57,8 @@ export class User extends EntityBase {
     @ManyToMany(type => Role, role => role.users, { eager: true })
     @JoinTable({ name: 'rbac_users_roles_links' })
     public roles: Array<Role>;
+
+    @ManyToOne(type => Team, team => team.users)
+    public teams: Array<Team>;
 
 }

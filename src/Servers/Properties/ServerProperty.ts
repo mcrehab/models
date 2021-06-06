@@ -3,8 +3,8 @@ import { EntityBase } from '@nestjs.pro/common/dist/entities/EntityBase';
 import { ApiProperty } from '@nestjs/swagger';
 import { Server } from '../Server';
 
-@Entity('servers_whitelists')
-export class ServerWhitelist extends EntityBase {
+@Entity('servers_properties')
+export class ServerProperty extends EntityBase {
 
     @ApiProperty({ type: () => Server })
     @ManyToOne(type => Server)
@@ -14,9 +14,6 @@ export class ServerWhitelist extends EntityBase {
     public name: string;
 
     @ApiProperty()
-    public description: string;
-
-    @ApiProperty()
-    public address: string;
+    public value: string;
 
 }
