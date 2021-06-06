@@ -6,6 +6,9 @@ import { ApiProperty } from '@nestjs/swagger';
 export class Server extends EntityBase {
 
     @ApiProperty()
-    public name: string;
+    public username: string;
+
+    @ApiProperty()
+    public description: string;
 
 }

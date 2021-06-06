@@ -8,4 +8,11 @@ export class ServerWhitelist extends EntityBase {
     @ApiProperty()
     public name: string;
 
+    @ApiProperty()
+    public description: string;
+
+    @ApiProperty()
+    public hostname: string;
+
+
 }
