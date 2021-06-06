@@ -2,6 +2,7 @@ import { Entity, JoinColumn, OneToMany } from 'typeorm';
 import { EntityBase } from '@nestjs.pro/common/dist/entities/EntityBase';
 import { ApiProperty } from '@nestjs/swagger';
 import { ServerProperties } from './Properties/ServerProperties';
+import { ServerStatus } from './ServerStatus';
 
 @Entity('servers')
 export class Server extends EntityBase {
@@ -18,6 +19,9 @@ export class Server extends EntityBase {
     @ApiProperty({ type: ServerProperties, isArray: true })
     @OneToMany(type => ServerProperties, properties => properties.server)
     @JoinColumn()
-    public properties: Array<ServerProperties>
-   
+    public properties: Array<ServerProperties>;
+
+    @ApiProperty()
+    public status: ServerStatus;
+    
 }

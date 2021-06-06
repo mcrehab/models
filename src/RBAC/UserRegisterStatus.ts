@@ -1,0 +1,8 @@
+export enum UserRegisterStatus {
+
+    SUCCESSFUL = 'SUCCESSFUL',
+    EXISTS = 'EXISTS',
+    LOCKED = 'LOCKED',
+    PENDING_CONFIRMATION = 'PENDING_CONFIRMATION'
+
+}
