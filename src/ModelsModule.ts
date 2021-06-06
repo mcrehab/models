@@ -1,34 +1,11 @@
 import { DynamicModule, Global, Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { Organization } from './RBAC/Organization';
-import { Application } from './RBAC/Application';
-import { ApplicationRepository } from './RBAC/ApplicationRepository';
-import { Camera } from './cameras/Camera';
-import { CameraConnectionProperties } from './cameras/CameraConnectionProperties';
-import { Neighborhood } from './neighborhoods/Neighborhood';
-import { NeighborhoodInvite } from './neighborhoods/NeighborhoodInvite';
-import { Permission } from './RBAC/Permission';
-import { Role } from './RBAC/Role';
-import { RoleRepository } from './RBAC/RoleRepository';
-import { Token } from './RBAC/Token';
-import { User } from './RBAC/User';
-import { CameraRepository } from './cameras/CameraRepository';
-import { LocationRepository } from './locations/LocationRepository';
-import { NeighborhoodRepository } from './neighborhoods/NeighborhoodRepository';
-import { NeighborhoodInviteRepository } from './neighborhoods/NeighborhoodInviteRepository';
-import { OrganizationRepository } from './RBAC/OrganizationRepository';
-import { PermissionRepository } from './RBAC/PermissionRepository';
-import { UserRepository } from './RBAC/UserRepository';
-import { Location } from './locations/Location';
 import { ModelsModuleOptions } from './ModelsModuleOptions';
-import { CameraSegment } from './cameras/CameraSegment';
-import { CameraSegmentRepository } from './cameras/CameraSegmentRepository';
-import { CamerasPlaylistRepository } from './cameras/playlists/CamerasPlaylistRepository';
-import { CamerasPlaylistWatcher } from './cameras/playlists/CamerasPlaylistWatcher';
-import { CameraSettingsProbe } from './cameras/settings/CameraSettingsProbe';
-import { CameraSettingsProbeVideo } from './cameras/settings/CameraSettingsProbeVideo';
-import { CameraSettingsProbeAudio } from './cameras/settings/CameraSettingsProbeAudio';
-import { CamerasSettingsProbesRepository } from './cameras/settings/CamerasSettingsProbesRepository';
+import {ServerWhitelistRepository} from "./Servers/Whitelist/ServerWhitelistRepository";
+import {ServerRepository} from "./Servers/ServerRepository";
+import {Server} from "./Servers/Server";
+import {ServerWhitelist} from "./Servers/Whitelist/ServerWhitelist";
+
 
 @Global()
 @Module({
@@ -50,92 +27,31 @@ import { CamerasSettingsProbesRepository } from './cameras/settings/CamerasSetti
             keepConnectionAlive: true,
             entities: [
 
-                Organization,
-
-                Application,
-                Camera,
-                CameraSegment,
-
-                CameraConnectionProperties,
-                Location,
-                Neighborhood,
-                NeighborhoodInvite,
-                // OrganizationRepository,
-                //
-                Permission,
-                Role,
-                Token,
-                User
-
-                // ApplicationRepository,
-                // CameraRepository,
-                // LocationRepository,
-                // NeighborhoodRepository,
-                // NeighborhoodInviteRepository,
-                // OrganizationRepository,
-                // RoleRepository,
-                // PermissionRepository,
-                // UserRepository
+                Server,
+                ServerWhitelist
 
             ]
 
         })
-        //
-
 
     ],
 
     providers: [
 
-        // ApplicationRepository,
-        CameraRepository
-        // LocationRepository,
-        // NeighborhoodRepository,
-        // NeighborhoodInviteRepository,
-        // OrganizationRepository,
-        // RoleRepository,
-        // PermissionRepository,
-        // UserRepository
+
 
     ],
 
     exports: [
 
-        TypeOrmModule,// ApplicationRepository,
+        TypeOrmModule,
         TypeOrmModule.forFeature([
-            //
-            //     RoleRepository, OrganizationRepository
-            // Organization,
-            // Camera,
-            // CameraConnectionProperties,
-            // Location,
-            // Neighborhood,
-            // NeighborhoodInvite,
-            // OrganizationRepository,
-            //
-            // Permission,
-            // Role,
-            // Token,
-            // User,
-            ApplicationRepository,
-            CameraRepository,
-            CameraSegmentRepository,
-            LocationRepository,
-            NeighborhoodRepository,
-            NeighborhoodInviteRepository,
-            OrganizationRepository,
-            RoleRepository,
-            PermissionRepository,
-            UserRepository
+
+            ServerRepository,
+            ServerWhitelistRepository
 
         ])
-        // LocationRepository,
-        // NeighborhoodRepository,
-        // NeighborhoodInviteRepository,
-        // OrganizationRepository,
-        // RoleRepository,
-        // PermissionRepository,
-        // UserRepository
+
 
     ]
 
@@ -164,39 +80,16 @@ export class ModelsModule {
                     keepConnectionAlive: true,
                     entities: [
 
-                        Camera,
-                        CameraSegment,
-                        CameraConnectionProperties,
-                        CamerasPlaylistWatcher,
-                        CameraSettingsProbe,
-                        CameraSettingsProbeVideo,
-                        CameraSettingsProbeAudio,
-                        Location,
-                        Neighborhood,
-                        NeighborhoodInvite,
-                        Organization,
-                        Permission,
-                        Role,
-                        Token,
-                        User
+                        Server,
+                        ServerWhitelist
 
                     ]
 
                 }),
                 TypeOrmModule.forFeature([
 
-                    // ApplicationRepository,
-                    CameraRepository,
-                    CameraSegmentRepository,
-                    CamerasPlaylistRepository,
-                    CamerasSettingsProbesRepository,
-                    LocationRepository,
-                    NeighborhoodRepository,
-                    NeighborhoodInviteRepository,
-                    OrganizationRepository,
-                    RoleRepository,
-                    PermissionRepository,
-                    UserRepository
+                    ServerRepository,
+                    ServerWhitelistRepository
 
                 ])
 
@@ -205,37 +98,16 @@ export class ModelsModule {
 
             providers: [
 
-                ApplicationRepository,
-                CameraRepository,
-                CameraSegmentRepository,
-                CamerasPlaylistRepository,
-                CamerasSettingsProbesRepository,
-                LocationRepository,
-                NeighborhoodRepository,
-                NeighborhoodInviteRepository,
-                OrganizationRepository,
-                RoleRepository,
-                PermissionRepository,
-                UserRepository
-
+                ServerRepository,
+                ServerWhitelistRepository
             ],
 
             exports: [
 
                 TypeOrmModule,
 
-                ApplicationRepository,
-                CameraRepository,
-                CameraSegmentRepository,
-                CamerasPlaylistRepository,
-                CamerasSettingsProbesRepository,
-                LocationRepository,
-                NeighborhoodRepository,
-                NeighborhoodInviteRepository,
-                OrganizationRepository,
-                RoleRepository,
-                PermissionRepository,
-                UserRepository
+                ServerRepository,
+                ServerWhitelistRepository
 
             ]
 

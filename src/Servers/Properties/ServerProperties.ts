@@ -4,9 +4,9 @@ import { ApiProperty } from '@nestjs/swagger';
 import { Server } from '../Server';
 
 @Entity()
-export class ServerWhitelist extends EntityBase {
+export class ServerProperties extends EntityBase {
 
-    @ApiProperty()
+    @ApiProperty({type: () => Server})
     @ManyToOne(type => Server)
     public server: Server;
 
@@ -14,9 +14,7 @@ export class ServerWhitelist extends EntityBase {
     public name: string;
 
     @ApiProperty()
-    public description: string;
+    public value: string;
 
-    @ApiProperty()
-    public address: string;
 
 }
