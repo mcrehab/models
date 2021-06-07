@@ -1,8 +1,8 @@
 {
     "name": "@mc.rehab/models",
     "version": "0.0.2",
-    "main": "dist/main.js",
-    "types": "dist/main.d.ts",
+    "main": "dist/ModelsModule.js",
+    "types": "dist/ModelsModule.d.ts",
     "license": "MIT",
     "preversion": "rm -rf dist && tsc",
     "postversion": "npm publish",
