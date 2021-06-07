@@ -1,11 +1,11 @@
-import { EntityBase }                                   from '@nestjs.pro/common/dist/entities/EntityBase';
-import { ApiProperty }                                  from '@nestjs/swagger';
-import { IsUUID }                                       from 'class-validator';
+import { EntityBase } from '@nestjs.pro/common/dist/entities/EntityBase';
+import { ApiProperty } from '@nestjs/swagger';
+import { IsUUID } from 'class-validator';
 import { Column, Entity, Index, ManyToMany, ManyToOne } from 'typeorm';
-import { Organization }                                 from './Organization';
-import { Permission }                                   from './Permission';
-import { RBAC_TYPE }                                    from './RBACTypes';
-import { User }                                         from './User';
+import { Organization } from './Organization';
+import { Permission } from './Permission';
+import { RBAC_TYPE } from './RBACTypes';
+import { User } from './User';
 
 @Entity({ name: 'rbac_roles' })
 @Index([ 'organization', 'name' ], { unique: true })
@@ -25,11 +25,11 @@ export class Role extends EntityBase {
     public description?: string;
 
     @ApiProperty()
-    @ManyToMany(type => Permission, permission => permission.roles, { eager: true, cascade: true })
+    @ManyToMany(type => Permission, permission => permission.roles, { eager: true, onDelete: 'CASCADE' })
     public permissions?: Array<Permission>;
 
     @ApiProperty()
-    @ManyToMany(type => User, user => user.roles)
+    @ManyToMany(type => User, user => user.roles, { onDelete: 'CASCADE' })
     public users?: Array<User>;
 
     @ApiProperty()

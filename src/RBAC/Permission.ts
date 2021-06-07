@@ -1,10 +1,10 @@
-import { EntityBase }                                              from '@nestjs.pro/common/dist/entities/EntityBase';
-import { ApiProperty }                                             from '@nestjs/swagger';
-import { IsUUID }                                                  from 'class-validator';
+import { EntityBase } from '@nestjs.pro/common/dist/entities/EntityBase';
+import { ApiProperty } from '@nestjs/swagger';
+import { IsUUID } from 'class-validator';
 import { Column, Entity, Index, JoinTable, ManyToMany, ManyToOne } from 'typeorm';
-import { Organization }                                            from './Organization';
-import { RBAC_TYPE }                                               from './RBACTypes';
-import { Role }                                                    from './Role';
+import { Organization } from './Organization';
+import { RBAC_TYPE } from './RBACTypes';
+import { Role } from './Role';
 
 @Entity({ name: 'rbac_permissions' })
 @Index([ 'organization', 'name' ], { unique: true })
@@ -24,7 +24,7 @@ export class Permission extends EntityBase {
     public description?: string;
 
     @ApiProperty()
-    @ManyToMany(type => Role, role => role.permissions)
+    @ManyToMany(type => Role, role => role.permissions, { cascade: true })
     @JoinTable({
         name: 'rbac_permissions_roles_links',
         joinColumn: { name: 'permission_id' },

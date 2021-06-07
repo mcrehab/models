@@ -1,4 +1,4 @@
-import { Entity, JoinColumn, OneToMany, ManyToMany } from 'typeorm';
+import { Entity, JoinColumn, OneToMany, ManyToMany, ManyToOne, Unique, Column } from 'typeorm';
 import { EntityBase } from '@nestjs.pro/common/dist/entities/EntityBase';
 import { ApiProperty } from '@nestjs/swagger';
 import { ServerStatus } from './ServerStatus';
@@ -6,17 +6,26 @@ import { ServerProperty } from './Properties/ServerProperty';
 import { ServerWhitelist } from './Whitelist/ServerWhitelist';
 import { Team } from '../Teams/Team';
 import { ServerLog } from './Logs/ServerLog';
+import { User } from '../RBAC/User';
 
 @Entity('servers')
+@Unique([ 'user', 'name' ])
 export class Server extends EntityBase {
 
     @ApiProperty()
+    @ManyToOne(type => User)
+    public user: User;
+
+    @ApiProperty()
+    @Column()
     public name: string;
 
     @ApiProperty()
+    @Column()
     public description: string;
 
     @ApiProperty()
+    @Column({ nullable: true })
     public address: string;
 
     @ApiProperty({ type: ServerProperty, isArray: true })
@@ -40,6 +49,7 @@ export class Server extends EntityBase {
     public teams: Array<Team>;
 
     @ApiProperty()
+    @Column()
     public status: ServerStatus;
 
 }
