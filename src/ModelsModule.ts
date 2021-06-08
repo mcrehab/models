@@ -19,6 +19,10 @@ import { Token } from './RBAC/Token';
 import { UserRepository } from './RBAC/UserRepository';
 import { PermissionRepository } from './RBAC/PermissionRepository';
 import { RoleRepository } from './RBAC/RoleRepository';
+import { ServerType } from './Servers/Types/ServerType';
+import { ServerTypeVersion } from './Servers/Types/Versions/ServerTypeVersion';
+import { ServerTypeRepository } from './Servers/Types/ServerTypeRepository';
+import { ServerTypeVersionRepository } from './Servers/Types/Versions/ServerTypeVersionRepository';
 
 @Module({
 
@@ -110,6 +114,8 @@ export class ModelsModule {
                         ServerLog,
                         ServerProperty,
                         ServerWhitelist,
+                        ServerType,
+                        ServerTypeVersion,
                         Team
 
                     ]
@@ -124,6 +130,8 @@ export class ModelsModule {
                     ServerRepository,
                     ServerBackupRepository,
                     ServerWhitelistRepository,
+                    ServerTypeRepository,
+                    ServerTypeVersionRepository,
                     TeamRepository
 
                 ])
@@ -136,6 +144,8 @@ export class ModelsModule {
                 ServerRepository,
                 ServerBackupRepository,
                 ServerWhitelistRepository,
+                ServerTypeRepository,
+                ServerTypeVersionRepository,
                 TeamRepository
 
             ],
@@ -147,6 +157,8 @@ export class ModelsModule {
                 ServerRepository,
                 ServerBackupRepository,
                 ServerWhitelistRepository,
+                ServerTypeRepository,
+                ServerTypeVersionRepository,
                 TeamRepository
 
             ]
