@@ -38,6 +38,14 @@ export class Server extends EntityBase {
     @Column({ nullable: true })
     public address: string;
 
+    @ApiProperty()
+    @Column()
+    public status: ServerStatus;
+
+    @ApiProperty()
+    @Column()
+    public public: boolean;
+
     @ApiProperty({ type: ServerProperty, isArray: true })
     @OneToMany(type => ServerProperty, properties => properties.server)
     @JoinColumn()
@@ -57,9 +65,5 @@ export class Server extends EntityBase {
     @ManyToMany(type => Team, team => team.servers)
     @JoinColumn()
     public teams: Array<Team>;
-
-    @ApiProperty()
-    @Column()
-    public status: ServerStatus;
 
 }

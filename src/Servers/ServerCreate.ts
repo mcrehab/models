@@ -1,5 +1,5 @@
 import { ApiProperty } from '@nestjs/swagger';
-import { Length, Matches } from 'class-validator';
+import { Length, Matches, IsBoolean } from 'class-validator';
 
 export class ServerCreate {
 
@@ -18,5 +18,9 @@ export class ServerCreate {
     @ApiProperty()
     @Matches(/^[0-9A-F]{8}-[0-9A-F]{4}-4[0-9A-F]{3}-[89AB][0-9A-F]{3}-[0-9A-F]{12}$/i)
     public typeVersion: string;
+
+    @ApiProperty()
+    @IsBoolean()
+    public public: boolean;
 
 }
