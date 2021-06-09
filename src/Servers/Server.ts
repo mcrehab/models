@@ -7,6 +7,8 @@ import { ServerWhitelist } from './Whitelist/ServerWhitelist';
 import { Team } from '../Teams/Team';
 import { ServerLog } from './Logs/ServerLog';
 import { User } from '../RBAC/User';
+import { ServerTypeVersion } from './Types/Versions/ServerTypeVersion';
+import { ServerType } from './Types/ServerType';
 
 @Entity('servers')
 @Unique([ 'user', 'name' ])
@@ -23,6 +25,14 @@ export class Server extends EntityBase {
     @ApiProperty()
     @Column()
     public description: string;
+
+    @ApiProperty()
+    @ManyToOne(() => ServerType)
+    public type: ServerType;
+
+    @ApiProperty()
+    @ManyToOne(() => ServerTypeVersion)
+    public typeVersion: ServerTypeVersion;
 
     @ApiProperty()
     @Column({ nullable: true })

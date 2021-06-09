@@ -1,5 +1,5 @@
 import { ApiProperty } from '@nestjs/swagger';
-import { Length } from 'class-validator';
+import { Length, Matches } from 'class-validator';
 
 export class ServerCreate {
 
@@ -10,5 +10,13 @@ export class ServerCreate {
     @ApiProperty()
     @Length(0, 255)
     public description: string;
+
+    @ApiProperty()
+    @Matches(/^[A-Za-z0-9-_=]+\.[A-Za-z0-9-_=]+\.?[A-Za-z0-9-_.+/=]*$/)
+    public type: string;
+
+    @ApiProperty()
+    @Matches(/^[A-Za-z0-9-_=]+\.[A-Za-z0-9-_=]+\.?[A-Za-z0-9-_.+/=]*$/)
+    public typeVersion: string;
 
 }
