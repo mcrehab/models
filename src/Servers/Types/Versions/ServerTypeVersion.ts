@@ -6,7 +6,6 @@ import { EntityBase } from '@nestjs.pro/common/dist/entities/EntityBase';
 @Entity('server_types_versions')
 export class ServerTypeVersion extends EntityBase {
 
-    @ApiProperty()
     @ManyToOne(() => ServerType)
     public type: ServerType;
 

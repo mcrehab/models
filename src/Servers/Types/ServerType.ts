@@ -1,9 +1,10 @@
-import { Entity, Column, OneToMany } from 'typeorm';
+import { Entity, Column, OneToMany, Unique } from 'typeorm';
 import { ApiProperty } from '@nestjs/swagger';
 import { ServerTypeVersion } from './Versions/ServerTypeVersion';
 import { EntityBase } from '@nestjs.pro/common/dist/entities/EntityBase';
 
 @Entity('server_types')
+@Unique([ 'name' ])
 export class ServerType extends EntityBase {
 
     @OneToMany(() => ServerTypeVersion, version => version.type, { cascade: true })
