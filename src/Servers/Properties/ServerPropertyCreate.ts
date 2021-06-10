@@ -1,6 +1,6 @@
 import { ApiProperty } from '@nestjs/swagger';
 import { IsEnum, Length } from 'class-validator';
-import { ServerPropertyEntryName } from './ServerPropertyEntry';
+import { ServerPropertyEntryName } from './ServerPropertyEntryName';
 
 export class ServerPropertyCreate {
 
