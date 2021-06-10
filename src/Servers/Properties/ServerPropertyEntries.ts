@@ -16,7 +16,7 @@ export const ServerPropertyEntries: Array<ServerPropertyEntry> = [
         name: 'Difficulty',
         description: 'Difficulty level for this server.',
         key: 'difficulty',
-        type: 'range',
+        type: 'select',
         default: 'easy',
         min: 1,
         max: 1000,
