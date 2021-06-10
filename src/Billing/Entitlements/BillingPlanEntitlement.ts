@@ -1,4 +1,4 @@
-import { Entity, Unique, ManyToOne, OneToOne, Server } from 'typeorm';
+import { Entity, Unique, ManyToOne, Server } from 'typeorm';
 import { EntityBase } from '@nestjs.pro/common/dist/entities/EntityBase';
 import { ApiProperty } from '@nestjs/swagger';
 import { BillingPlan } from '../BillingPlan';
@@ -13,9 +13,9 @@ export class BillingPlanEntitlement extends EntityBase {
     public plan: BillingPlan;
 
     @ApiProperty()
-    @OneToOne(() => Server)
+    @ManyToOne(() => Server)
     public server: Server;
-    
+
     @ApiProperty()
     @ManyToOne(() => User)
     public user: User;

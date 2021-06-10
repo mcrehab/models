@@ -29,6 +29,8 @@ import { BillingMethodRepository } from './Billing/Methods/BillingMethodReposito
 import { BillingPlan } from './Billing/BillingPlan';
 import { BillingPlanEntitlement } from './Billing/Entitlements/BillingPlanEntitlement';
 import { BillingMethod } from './Billing/Methods/BillingMethod';
+import { BillingTransaction } from './Billing/Transactions/BillingTransaction';
+import { BillingTransactionRepository } from './Billing/Transactions/BillingTransactionRepository';
 
 @Module({})
 export class ModelsModule {
@@ -64,6 +66,7 @@ export class ModelsModule {
                         BillingMethod,
                         BillingPlan,
                         BillingPlanEntitlement,
+                        BillingTransaction,
                         Server,
                         ServerBackup,
                         ServerLog,
@@ -85,6 +88,7 @@ export class ModelsModule {
                     BillingMethodRepository,
                     BillingPlanRepository,
                     BillingPlanEntitlementRepository,
+                    BillingTransactionRepository,
                     ServerRepository,
                     ServerBackupRepository,
                     ServerWhitelistRepository,
@@ -102,6 +106,7 @@ export class ModelsModule {
                 BillingMethodRepository,
                 BillingPlanRepository,
                 BillingPlanEntitlementRepository,
+                BillingTransactionRepository,
                 ServerRepository,
                 ServerBackupRepository,
                 ServerWhitelistRepository,
@@ -118,6 +123,7 @@ export class ModelsModule {
                 BillingMethodRepository,
                 BillingPlanRepository,
                 BillingPlanEntitlementRepository,
+                BillingTransactionRepository,
                 ServerRepository,
                 ServerBackupRepository,
                 ServerWhitelistRepository,
