@@ -23,62 +23,10 @@ import { ServerType } from './Servers/Types/ServerType';
 import { ServerTypeVersion } from './Servers/Types/Versions/ServerTypeVersion';
 import { ServerTypeRepository } from './Servers/Types/ServerTypeRepository';
 import { ServerTypeVersionRepository } from './Servers/Types/Versions/ServerTypeVersionRepository';
+import { BillingPlanRepository } from './Billing/BillingPlanRepository';
+import { BillingPlanEntitlementRepository } from './Billing/Entitlements/BillingPlanEntitlementRepository';
 
-@Module({
-
-    // imports: [
-    //
-    //     TypeOrmModule.forRoot({
-    //
-    //         type: 'mysql',
-    //         host: process.env.DB_HOSTNAME,
-    //         port: Number.parseInt(process.env.DB_PORT) || 3306,
-    //         username: process.env.DB_USERNAME || 'root',
-    //         password: process.env.DB_PASSWORD || 'mysql',
-    //         database: process.env.DB_NAME || 'sp',
-    //         synchronize: process.env.DB_SYNCHRONIZE === 'true' || true,
-    //         connectTimeout: 30000,
-    //         logging: process.env.DB_LOGGING === 'true',
-    //         keepConnectionAlive: true,
-    //         entities: [
-    //
-    //             Organization,
-    //             Permission,
-    //             Role,
-    //             Token,
-    //
-    //             Server,
-    //             ServerBackup,
-    //             ServerLog,
-    //             ServerProperty,
-    //             ServerWhitelist,
-    //             Team,
-    //             User
-    //
-    //         ]
-    //
-    //     })
-    //
-    // ],
-    //
-    // providers: [],
-    //
-    // exports: [
-    //
-    //     TypeOrmModule,
-    //     TypeOrmModule.forFeature([
-    //
-    //         ServerRepository,
-    //         ServerBackupRepository,
-    //         ServerWhitelistRepository,
-    //         TeamRepository
-    //
-    //     ])
-    //
-    //
-    // ]
-
-})
+@Module()
 export class ModelsModule {
 
     public static forRoot(options?: ModelsModuleOptions): DynamicModule {
@@ -127,6 +75,8 @@ export class ModelsModule {
                     PermissionRepository,
                     RoleRepository,
 
+                    BillingPlanRepository,
+                    BillingPlanEntitlementRepository,
                     ServerRepository,
                     ServerBackupRepository,
                     ServerWhitelistRepository,
@@ -141,6 +91,8 @@ export class ModelsModule {
 
             providers: [
 
+                BillingPlanRepository,
+                BillingPlanEntitlementRepository,
                 ServerRepository,
                 ServerBackupRepository,
                 ServerWhitelistRepository,
@@ -154,6 +106,8 @@ export class ModelsModule {
 
                 TypeOrmModule,
 
+                BillingPlanRepository,
+                BillingPlanEntitlementRepository,
                 ServerRepository,
                 ServerBackupRepository,
                 ServerWhitelistRepository,
