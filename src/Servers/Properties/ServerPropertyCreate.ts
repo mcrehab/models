@@ -1,12 +1,12 @@
 import { ApiProperty } from '@nestjs/swagger';
 import { IsEnum, Length } from 'class-validator';
-import { ServerPropertyEntry } from './ServerPropertyEntry';
+import { ServerPropertyEntryName } from './ServerPropertyEntry';
 
 export class ServerPropertyCreate {
 
-    @ApiProperty({ enum: ServerPropertyEntry })
-    @IsEnum(ServerPropertyEntry)
-    public name: ServerPropertyEntry;
+    @ApiProperty({ enum: ServerPropertyEntryName })
+    @IsEnum(ServerPropertyEntryName)
+    public name: ServerPropertyEntryName;
 
     @ApiProperty()
     @Length(1, 255)

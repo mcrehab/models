@@ -1,6 +1,12 @@
-export enum ServerPropertyEntry {
+export interface ServerPropertyEntry {
 
-    SPAWN_PROTECTION = 'SPAWN_PROTECTION',
-    MAX_TICK_TIME = 'MAX_TICK_TIME'
+    name: string;
+    description: string;
+    key: string;
+    type: 'boolean' | 'number' | 'string' | 'dropdown' | 'range';
+    default: string | number | boolean,
+    min?: number;
+    max?: number;
+    values?: Array<string | number>;
 
 }
