@@ -26,7 +26,7 @@ import { ServerTypeVersionRepository } from './Servers/Types/Versions/ServerType
 import { BillingPlanRepository } from './Billing/BillingPlanRepository';
 import { BillingPlanEntitlementRepository } from './Billing/Entitlements/BillingPlanEntitlementRepository';
 
-@Module()
+@Module({})
 export class ModelsModule {
 
     public static forRoot(options?: ModelsModuleOptions): DynamicModule {
