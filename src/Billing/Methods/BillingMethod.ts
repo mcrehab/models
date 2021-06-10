@@ -4,7 +4,7 @@ import { ApiProperty } from '@nestjs/swagger';
 import { User } from '../../RBAC/User';
 
 @Entity('billing_methods')
-@Unique([ 'name' ])
+@Unique([ 'user', 'name' ])
 export class BillingMethod extends EntityBase {
 
     @ApiProperty()
