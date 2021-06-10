@@ -27,7 +27,7 @@ export const ServerPropertyEntries: Array<ServerPropertyEntry> = [
         name: 'Enforce Whitelist',
         description: 'Turn this on to require players to be in the whitelist.',
         key: 'enforce-whitelist',
-        type: 'boolean',
+        type: 'toggle',
         default: false
 
     }
