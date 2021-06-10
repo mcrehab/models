@@ -2,7 +2,7 @@ import { Entity, ManyToOne, Column, Unique } from 'typeorm';
 import { EntityBase } from '@nestjs.pro/common/dist/entities/EntityBase';
 import { ApiProperty } from '@nestjs/swagger';
 import { Server } from '../Server';
-import { ServerPropertyEntryName } from './ServerPropertyEntry';
+import { ServerPropertyEntryName } from './ServerPropertyEntryName';
 
 @Entity('servers_properties')
 @Unique([ 'server', 'name' ])
