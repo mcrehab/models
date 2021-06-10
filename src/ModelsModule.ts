@@ -25,6 +25,10 @@ import { ServerTypeRepository } from './Servers/Types/ServerTypeRepository';
 import { ServerTypeVersionRepository } from './Servers/Types/Versions/ServerTypeVersionRepository';
 import { BillingPlanRepository } from './Billing/BillingPlanRepository';
 import { BillingPlanEntitlementRepository } from './Billing/Entitlements/BillingPlanEntitlementRepository';
+import { BillingMethodRepository } from './Billing/Methods/BillingMethodRepository';
+import { BillingPlan } from './Billing/BillingPlan';
+import { BillingPlanEntitlement } from './Billing/Entitlements/BillingPlanEntitlement';
+import { BillingMethod } from './Billing/Methods/BillingMethod';
 
 @Module({})
 export class ModelsModule {
@@ -57,6 +61,9 @@ export class ModelsModule {
                         Token,
                         User,
 
+                        BillingMethod,
+                        BillingPlan,
+                        BillingPlanEntitlement,
                         Server,
                         ServerBackup,
                         ServerLog,
@@ -75,6 +82,7 @@ export class ModelsModule {
                     PermissionRepository,
                     RoleRepository,
 
+                    BillingMethodRepository,
                     BillingPlanRepository,
                     BillingPlanEntitlementRepository,
                     ServerRepository,
@@ -91,6 +99,7 @@ export class ModelsModule {
 
             providers: [
 
+                BillingMethodRepository,
                 BillingPlanRepository,
                 BillingPlanEntitlementRepository,
                 ServerRepository,
@@ -106,6 +115,7 @@ export class ModelsModule {
 
                 TypeOrmModule,
 
+                BillingMethodRepository,
                 BillingPlanRepository,
                 BillingPlanEntitlementRepository,
                 ServerRepository,
