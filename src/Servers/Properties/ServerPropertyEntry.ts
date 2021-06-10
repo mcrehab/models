@@ -3,7 +3,7 @@ export interface ServerPropertyEntry {
     name: string;
     description: string;
     key: string;
-    type: 'boolean' | 'number' | 'string' | 'dropdown' | 'range';
+    type: 'text' | 'textarea' | 'select' | 'checkbox';
     default: string | number | boolean,
     min?: number;
     max?: number;
