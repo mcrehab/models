@@ -1,6 +1,6 @@
 {
     "name": "@mc.rehab/models",
-    "version": "0.0.23",
+    "version": "0.0.24",
     "main": "dist/ModelsModule.js",
     "types": "dist/ModelsModule.d.ts",
     "license": "MIT",
