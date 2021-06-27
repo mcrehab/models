@@ -111,14 +111,13 @@ export const ServerPropertyEntries: Array<ServerPropertyEntry> = [
         default: true
 
     }, {
+    
         name: 'Spawn protection radius',
         description: 'How big the radius for spawn protection is',
         key: 'max-protection',
         type: 'text',
         default: '0'
 
-
     }
-
 
 ];

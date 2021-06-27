@@ -31,6 +31,8 @@ import { BillingPlanEntitlement } from './Billing/Entitlements/BillingPlanEntitl
 import { BillingMethod } from './Billing/Methods/BillingMethod';
 import { BillingTransaction } from './Billing/Transactions/BillingTransaction';
 import { BillingTransactionRepository } from './Billing/Transactions/BillingTransactionRepository';
+import { Invite } from './RBAC/Invites/Invite';
+import { InviteRepository } from './RBAC/Invites/InviteRepository';
 
 @Module({})
 export class ModelsModule {
@@ -62,6 +64,7 @@ export class ModelsModule {
                         Role,
                         Token,
                         User,
+                        Invite,
 
                         BillingMethod,
                         BillingPlan,
@@ -84,6 +87,7 @@ export class ModelsModule {
                     UserRepository,
                     PermissionRepository,
                     RoleRepository,
+                    InviteRepository,
 
                     BillingMethodRepository,
                     BillingPlanRepository,
