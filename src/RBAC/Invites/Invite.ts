@@ -15,4 +15,8 @@ export class Invite extends EntityBase {
     @Column()
     public email: string;
 
+    @ApiProperty()
+    @Column()
+    public token: string;
+
 }
