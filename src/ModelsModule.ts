@@ -106,6 +106,7 @@ export class ModelsModule {
             ],
 
             providers: [
+                InviteRepository,
 
                 BillingMethodRepository,
                 BillingPlanRepository,
@@ -123,6 +124,7 @@ export class ModelsModule {
             exports: [
 
                 TypeOrmModule,
+                InviteRepository,
 
                 BillingMethodRepository,
                 BillingPlanRepository,
