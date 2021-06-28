@@ -13,4 +13,7 @@ export class ServerBackup extends EntityBase {
     @ApiProperty()
     public name: string;
 
+    @ApiProperty()
+    public size: number;
+
 }
