@@ -33,6 +33,8 @@ import { BillingTransaction } from './Billing/Transactions/BillingTransaction';
 import { BillingTransactionRepository } from './Billing/Transactions/BillingTransactionRepository';
 import { Invite } from './RBAC/Invites/Invite';
 import { InviteRepository } from './RBAC/Invites/InviteRepository';
+import { ServerPlayer } from './Servers/Players/ServerPlayer';
+import { ServerPlayerRepository } from './Servers/Players/ServerPlayerRepository';
 
 @Module({})
 export class ModelsModule {
@@ -73,6 +75,7 @@ export class ModelsModule {
                         Server,
                         ServerBackup,
                         ServerLog,
+                        ServerPlayer,
                         ServerProperty,
                         ServerWhitelist,
                         ServerType,
@@ -95,9 +98,10 @@ export class ModelsModule {
                     BillingTransactionRepository,
                     ServerRepository,
                     ServerBackupRepository,
-                    ServerWhitelistRepository,
+                    ServerPlayerRepository,
                     ServerTypeRepository,
                     ServerTypeVersionRepository,
+                    ServerWhitelistRepository,
                     TeamRepository
 
                 ])
