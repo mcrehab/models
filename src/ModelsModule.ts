@@ -5,7 +5,7 @@ import { ServerWhitelistRepository } from "./Servers/Whitelist/ServerWhitelistRe
 import { ServerRepository } from "./Servers/ServerRepository";
 import { Server } from "./Servers/Server";
 import { ServerWhitelist } from "./Servers/Whitelist/ServerWhitelist";
-import { ServerBackup } from './Servers/Backups/Backup';
+import { ServerBackup } from './Servers/Backups/ServerBackup';
 import { ServerBackupRepository } from './Servers/Backups/ServerBackupRepository';
 import { Team } from './Teams/Team';
 import { TeamRepository } from './Teams/TeamRepository';
