@@ -12,6 +12,8 @@ import { Team } from '../Teams/Team';
 @Index([ 'email' ], { unique: true })
 export class User extends EntityBase {
 
+    public static patchableFields = [ 'email', 'firstname', 'lastname' ];
+
     @ManyToOne(type => Organization, organization => organization.users, { eager: true })
     public organization: Organization;
 
