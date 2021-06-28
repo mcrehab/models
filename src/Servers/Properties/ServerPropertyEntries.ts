@@ -6,10 +6,9 @@ export const ServerPropertyEntries: Array<ServerPropertyEntry> = [
         name: 'Player Slots',
         description: 'Maximum number of players for this server.',
         key: 'max-players',
-        type: 'range',
-        default: 10,
-        min: 1,
-        max: 1000
+        type: 'text',
+        default: '10'
+        
 
     }, {
 
