@@ -3,9 +3,9 @@ import { ApiProperty } from '@nestjs/swagger';
 export class UpdateField {
 
     @ApiProperty()
-    public fieldName: string;
+    public name: string;
 
     @ApiProperty()
-    public fieldValue: string;
+    public value: string;
 
 }
