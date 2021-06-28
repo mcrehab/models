@@ -11,6 +11,9 @@ export class ServerPlayerCreate {
     public description: string;
 
     @ApiProperty()
-    public ip: string;
+    public restrict: boolean;
+    
+    @ApiProperty()
+    public ips: string;
 
 }
