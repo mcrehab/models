@@ -1,13 +1,14 @@
-import { Entity, ManyToOne, Column } from 'typeorm';
+import { Entity, ManyToOne, Column, Unique } from 'typeorm';
 import { EntityBase } from '@nestjs.pro/common/dist/entities/EntityBase';
 import { ApiProperty } from '@nestjs/swagger';
 import { Server } from '../Server';
 
 @Entity('servers_players')
+@Unique([ 'server', 'name' ])
 export class ServerPlayer extends EntityBase {
 
     @ApiProperty({ type: () => Server })
-    @ManyToOne(type => Server)
+    @ManyToOne(() => Server)
     public server: Server;
 
     @ApiProperty()
