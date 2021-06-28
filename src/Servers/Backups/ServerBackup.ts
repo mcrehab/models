@@ -17,15 +17,15 @@ export class ServerBackup extends EntityBase {
     public name: string;
 
     @ApiProperty()
-    @Column()
+    @Column({ nullable: true })
     public description: string;
 
     @ApiProperty()
-    @Column({ type: 'text' })
+    @Column({ type: 'text', nullable: true })
     public output: string;
 
     @ApiProperty()
-    @Column()
+    @Column({ nullable: true })
     public size: number;
 
 }
