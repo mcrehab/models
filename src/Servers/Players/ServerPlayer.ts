@@ -7,6 +7,8 @@ import { Server } from '../Server';
 @Unique([ 'server', 'name' ])
 export class ServerPlayer extends EntityBase {
 
+    public static editable = [ 'name', 'description', 'restrict', 'ips' ];
+
     @ApiProperty({ type: () => Server })
     @ManyToOne(() => Server)
     public server: Server;
