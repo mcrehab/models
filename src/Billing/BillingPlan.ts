@@ -36,7 +36,7 @@ export class BillingPlan extends EntityBase {
     public disk: number;
 
     @ApiProperty()
-    @Column()
+    @Column({ type: 'float' })
     public amount: number;
 
     @ApiProperty()
