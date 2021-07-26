@@ -2,7 +2,7 @@ import { ApiProperty } from '@nestjs/swagger';
 import { IsNumber, IsEnum } from 'class-validator';
 import { BillingTransactionStatus } from './BillingTransactionStatus';
 import { BillingPlanEntitlement } from '../Entitlements/BillingPlanEntitlement';
-import { User } from '@mc.rehab/models/dist/RBAC/User';
+import { User } from '../../RBAC/User';
 
 export class BillingTransactionCreate {
 

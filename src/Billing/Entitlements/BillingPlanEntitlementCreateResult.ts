@@ -1,4 +1,4 @@
-import { BillingPlanEntitlementStatus } from './BillingPlanEntitlementCreateStatus';
+import { BillingPlanEntitlementStatus } from './BillingPlanEntitlementStatus';
 
 export interface BillingPlanEntitlementCreateResult {
 
