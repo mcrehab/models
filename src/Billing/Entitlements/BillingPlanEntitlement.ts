@@ -1,9 +1,10 @@
-import { Entity, ManyToOne, Unique } from 'typeorm';
+import { Entity, ManyToOne, Unique, Column } from 'typeorm';
 import { EntityBase } from '@nestjs.pro/common/dist/entities/EntityBase';
 import { ApiProperty } from '@nestjs/swagger';
 import { BillingPlan } from '../BillingPlan';
 import { User } from '../../RBAC/User';
 import { Server } from '../../Servers/Server';
+import { BillingPlanEntitlementStatus } from './BillingPlanEntitlementStatus';
 
 @Entity('billing_plans_entitlements')
 @Unique([ 'user', 'server', 'plan' ])
@@ -21,4 +22,8 @@ export class BillingPlanEntitlement extends EntityBase {
     @ManyToOne(() => Server)
     public server: Server;
 
+    @ApiProperty()
+    @Column()
+    public status: BillingPlanEntitlementStatus;
+    
 }
