@@ -1,4 +1,4 @@
-import { Entity, ManyToMany, JoinTable } from 'typeorm';
+import { Entity, ManyToMany, JoinTable, ManyToOne } from 'typeorm';
 import { EntityBase } from '@nestjs.pro/common/dist/entities/EntityBase';
 import { ApiProperty } from '@nestjs/swagger';
 import { User } from '../RBAC/User';
@@ -10,8 +10,12 @@ export class Team extends EntityBase {
     @ApiProperty()
     public name: string;
 
+    @ApiProperty()
+    @ManyToOne(type => User)
+    public owner: User;
+
     @ApiProperty({ type: User, isArray: true })
-    @ManyToMany(type => User, user => user.teams)
+    @ManyToMany(type => User)
     @JoinTable({ name: 'teams_users' })
     public users: Array<User>;
 

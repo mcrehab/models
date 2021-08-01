@@ -55,7 +55,7 @@ export class ModelsModule {
                     username: process.env.DB_USERNAME || 'root',
                     password: process.env.DB_PASSWORD || 'mysql',
                     database: process.env.DB_NAME || 'rbac',
-                    synchronize: process.env.DB_SYNCHRONIZE === 'true' || true,
+                    synchronize: process.env.DB_SYNCHRONIZE === 'true',
                     connectTimeout: 30000,
                     logging: process.env.DB_LOGGING === 'true',
                     keepConnectionAlive: true,

@@ -6,7 +6,6 @@ import { BeforeInsert, BeforeUpdate, Column, Entity, Index, JoinTable, ManyToMan
 import { Organization } from './Organization';
 import { Role } from './Role';
 import { UserStatus } from './UserStatus';
-import { Team } from '../Teams/Team';
 
 @Entity('rbac_users')
 @Index([ 'email' ], { unique: true })
@@ -59,8 +58,5 @@ export class User extends EntityBase {
     @ManyToMany(type => Role, role => role.users, { eager: true })
     @JoinTable({ name: 'rbac_users_roles_links' })
     public roles: Array<Role>;
-
-    @ManyToOne(type => Team, team => team.users)
-    public teams: Array<Team>;
 
 }
