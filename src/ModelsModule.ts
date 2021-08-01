@@ -35,6 +35,8 @@ import { Invite } from './RBAC/Invites/Invite';
 import { InviteRepository } from './RBAC/Invites/InviteRepository';
 import { ServerPlayer } from './Servers/Players/ServerPlayer';
 import { ServerPlayerRepository } from './Servers/Players/ServerPlayerRepository';
+import { TeamInvite } from './Teams/Invites/TeamInvite';
+import { TeamInviteRepository } from './Teams/Invites/TeamInviteRepository';
 
 @Module({})
 export class ModelsModule {
@@ -80,7 +82,8 @@ export class ModelsModule {
                         ServerWhitelist,
                         ServerType,
                         ServerTypeVersion,
-                        Team
+                        Team,
+                        TeamInvite
 
                     ]
 
@@ -102,7 +105,8 @@ export class ModelsModule {
                     ServerTypeRepository,
                     ServerTypeVersionRepository,
                     ServerWhitelistRepository,
-                    TeamRepository
+                    TeamRepository,
+                    TeamInviteRepository
 
                 ])
 
