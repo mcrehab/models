@@ -21,6 +21,10 @@ export class TeamInvite extends EntityBase {
     @Column()
     public email: string;
 
+    @ApiProperty()
+    @Column()
+    public message: string;
+
     @ApiProperty({ enum: TeamInviteStatus })
     @Column({ type: 'enum', enum: TeamInviteStatus })
     public status: TeamInviteStatus;
