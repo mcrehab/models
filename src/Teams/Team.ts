@@ -26,7 +26,7 @@ export class Team extends EntityBase {
     public users: Array<User>;
 
     @ApiProperty({ type: () => Server, isArray: true })
-    @ManyToMany(type => Server, server => server.teams)
+    @ManyToMany(type => Server, server => server.teams, { onDelete: 'CASCADE' })
     @JoinTable({ name: 'teams_servers' })
     public servers: Array<Server>;
 
